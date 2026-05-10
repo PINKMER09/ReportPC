@@ -30,7 +30,7 @@ def login_screen():
     
     with col2:
         st.markdown("<br><br><br>", unsafe_allow_html=True)
-        st.markdown("<h2 style='text-align: center; color: #a54687;'>🏥 BÁO CÁO CHỈ SỐ ĐIỀU DƯỠNG</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center; color: #a54687;'>🏥 BÁO CÁO CHỈ SỐ <br> ĐIỀU DƯỠNG</h2>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center; color: gray;'>Vui lòng xác thực để truy cập dữ liệu nội bộ</p>", unsafe_allow_html=True)
         
         with st.form("login_form"):
