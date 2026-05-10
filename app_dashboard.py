@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 
 # 1. CẤU HÌNH TRANG WEB (Tắt thanh cuộn, giao diện rộng)
 st.set_page_config(
-    page_title="Cổng Báo Cáo Nội Bộ", 
+    page_title="Báo Cáo Nội Bộ Chỉ Số Điều Dưỡng", 
     page_icon="🏥", 
     layout="wide",
     initial_sidebar_state="collapsed" # Ẩn thanh bên lúc mới vào cho gọn
@@ -33,7 +33,7 @@ def login_screen():
         st.markdown(
             """
             <div style='text-align: center;'>
-                <h2 style='color: #8b008b;'>🏥 BÁO CÁO CHỈ SỐ<br>ĐIỀU DƯỠNG</h2>
+                <h2 style='color: #a54687;'>🏥 BÁO CÁO CHỈ SỐ<br>ĐIỀU DƯỠNG</h2>
             </div>
             """, 
             unsafe_allow_html=True
