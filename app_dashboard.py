@@ -11,9 +11,11 @@ st.set_page_config(
 
 # 2. DANH SÁCH TÀI KHOẢN HỢP LỆ (Bảo mật ban đầu)
 USERS = {
-    "admin": "123456",
-    "bacsikhoa": "khoa2026",
-    "quanly": "phuongchau"
+    "admin": "phuongchau3080",
+    "PC-00645": "phuongchau",
+    "PC-01817": "phuongchau",
+    "PC-20139": "phuongchau",
+    "PC-10222": "phuongchau"
 }
 
 # 3. KHỞI TẠO BIẾN TRẠNG THÁI (Ghi nhớ việc đã đăng nhập)
@@ -28,7 +30,7 @@ def login_screen():
     
     with col2:
         st.markdown("<br><br><br>", unsafe_allow_html=True)
-        st.markdown("<h2 style='text-align: center; color: #0056b3;'>🏥 HỆ THỐNG BÁO CÁO CHẤT LƯỢNG</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center; color: #a54687;'>🏥 BÁO CÁO CHỈ SỐ ĐIỀU DƯỠNG</h2>", unsafe_allow_html=True)
         st.markdown("<p style='text-align: center; color: gray;'>Vui lòng xác thực để truy cập dữ liệu nội bộ</p>", unsafe_allow_html=True)
         
         with st.form("login_form"):
