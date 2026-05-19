@@ -1,15 +1,10 @@
 import streamlit as st
 import streamlit.components.v1 as components
 
-# 1. CẤU HÌNH TRANG WEB (Tắt thanh cuộn, giao diện rộng)
-st.set_page_config(
-    page_title="Báo Cáo Nội Bộ Chỉ Số Điều Dưỡng", 
-    page_icon="🏥", 
-    layout="wide",
-    initial_sidebar_state="collapsed" # Ẩn thanh bên lúc mới vào cho gọn
-)
+# 1. CẤU HÌNH TRANG WEB
+st.set_page_config(page_title="Cổng Báo Cáo Nội Bộ", page_icon="🏥", layout="wide")
 
-# 2. DANH SÁCH TÀI KHOẢN HỢP LỆ (Bảo mật ban đầu)
+# 2. DANH SÁCH TÀI KHOẢN HỢP LỆ
 USERS = {
     "admin": "phuongchau3080",
     "PC-00645": "phuongchau",
@@ -18,7 +13,7 @@ USERS = {
     "PC-10222": "phuongchau"
 }
 
-# 3. KHỞI TẠO BIẾN TRẠNG THÁI (Ghi nhớ việc đã đăng nhập)
+# 3. KHỞI TẠO BIẾN TRẠNG THÁI
 if 'logged_in' not in st.session_state:
     st.session_state['logged_in'] = False
 if 'username' not in st.session_state:
@@ -33,7 +28,7 @@ def login_screen():
         st.markdown(
             """
             <div style='text-align: center;'>
-                <h2 style='color: #a54687;'>🏥 BÁO CÁO CHỈ SỐ<br>ĐIỀU DƯỠNG</h2>
+                <h2 style='color: #8b008b;'>🏥 BÁO CÁO CHỈ SỐ<br>ĐIỀU DƯỠNG</h2>
             </div>
             """, 
             unsafe_allow_html=True
@@ -64,10 +59,27 @@ def dashboard_screen():
             st.session_state['username'] = ""
             st.rerun()
 
+    # KHU VỰC CẬP NHẬT NGUYÊN NHÂN & HÀNH ĐỘNG KHI TRỄ TIẾN ĐỘ
+    st.markdown("---")
+    with st.expander("📝 Cập nhật nguyên nhân trễ tiến độ dự án (Nếu có)", expanded=False):
+        c_col1, c_col2 = st.columns(2)
+        with c_col1:
+            project_name = st.selectbox("Chọn dự án", ["Dự án AP Automation", "Dự án Cải tiến Điều dưỡng", "Khác..."])
+            cause = st.text_area("🔴 Nguyên nhân trễ (Cause)", placeholder="Nhập lý do cụ thể tại đây...")
+        with c_col2:
+            status = st.select_slider("Mức độ trễ", options=["Bình thường", "Trễ nhẹ", "Trễ nghiêm trọng"])
+            action = st.text_area("🟢 Hành động khắc phục (Action)", placeholder="Các bước sẽ thực hiện để kịp tiến độ...")
+        
+        if st.button("Gửi báo cáo cập nhật", use_container_width=True):
+            if cause and action:
+                st.success(f"✅ Đã ghi nhận báo cáo trễ tiến độ cho {project_name}!")
+            else:
+                st.warning("⚠️ Vui lòng điền đầy đủ cả Nguyên nhân và Hành động.")
+
     st.markdown("---")
     
-    # ĐƯỜNG LINK POWER BI CỦA BẠN ĐÃ ĐƯỢC GẮN VÀO ĐÂY
-    POWER_BI_URL = "https://app.powerbi.com/view?r=eyJrIjoiYWUxN2I1NzQtOTBiNy00MzYzLWFlY2YtNWVjMThjMjdiNzZiIiwidCI6IjhiZDRiMTQ5LTdmODItNDY3Ny1iNDQzLWQyNDk3NWRkOTAzMCIsImMiOjEwfQ%3D%3D"
+    # ĐƯỜNG LINK POWER BI
+    POWER_BI_URL = "https://app.powerbi.com/view?r=eyJrIjoiN2Q2YWExNGItZTBjZi00YjIxLTk4MWUtNjA3ZTliODIyZjVmIiwidCI6IjhiZDRiMTQ5LTdmODItNDY3Ny1iNDQzLWQyNDk3NWRkOTAzMCIsImMiOjEwfQ%3D%3D"
 
     iframe_html = f"""
         <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
@@ -81,7 +93,6 @@ def dashboard_screen():
             </iframe>
         </div>
     """
-    
     components.html(iframe_html, height=880)
 
 # 6. BỘ ĐIỀU CHUYỂN LOGIC TỔNG
