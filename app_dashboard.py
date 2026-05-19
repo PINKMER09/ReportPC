@@ -79,7 +79,7 @@ def dashboard_screen():
     st.markdown("---")
     
     # ĐƯỜNG LINK POWER BI
-    POWER_BI_URL = "https://app.powerbi.com/view?r=eyJrIjoiN2Q2YWExNGItZTBjZi00YjIxLTk4MWUtNjA3ZTliODIyZjVmIiwidCI6IjhiZDRiMTQ5LTdmODItNDY3Ny1iNDQzLWQyNDk3NWRkOTAzMCIsImMiOjEwfQ%3D%3D"
+    POWER_BI_URL = "https://app.powerbi.com/view?r=eyJrIjoiYWUxN2I1NzQtOTBiNy00MzYzLWFlY2YtNWVjMThjMjdiNzZiIiwidCI6IjhiZDRiMTQ5LTdmODItNDY3Ny1iNDQzLWQyNDk3NWRkOTAzMCIsImMiOjEwfQ%3D%3D"
 
     iframe_html = f"""
         <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
